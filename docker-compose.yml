@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:16
+    container_name: students-registration-db
+    environment:
+      POSTGRES_DB: students-registration
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5431:5432"
+    volumes:
+      - students-db-data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  students-db-data:
